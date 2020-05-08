@@ -1,0 +1,71 @@
+﻿@model Models.UserInfo
+@{
+    ViewBag.Title = "主页-后台管理";
+    ViewBag.lanmu = "继续教育人员 ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container-widget">
+    <div class="row">
+        @Html.Partial("~/Views/Shared/_AdminTongji.cshtml")
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-title">
+                    点击"<span style="color: red">否</span>"更改缴费状态&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:red">@ViewBag.info</span>
+                </div>
+                <div class="panel-body table-responsive">
+
+                    <table id="example" class="table display">
+                        <thead>
+                            <tr>
+                                <th>姓名 </th>
+                                <th>电话</th>
+                                <th>公司</th>
+                                <th>是否缴费</th>
+                                <th>报名时间</th>
+                                <th>详细信息</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (ViewBag.List != null)
+                            {
+                                foreach (var alist in ViewBag.list)
+                                {
+                                    <tr>
+                                        <td>@alist.userName</td>
+                                        <td>@alist.userPhone</td>
+                                        <td>@alist.userCompany</td>
+                                        <td>
+                                            @{if (alist.feiIsOk == 1)
+                                                {
+
+                                                    <span style="color:green">是</span>
+
+                                                }
+                                                else
+                                                {
+                                                    <a href="/userInfo/updateFeiIsOk/?uid=@alist.userId" onclick="if(confirm('确认修改缴费状态吗？')==false)return false;">
+                                                        <span style="color: red">否</span>
+                                                    </a>
+                                                }
+                                            }
+
+                                        </td>
+                                        <td>@((alist.userAddtime).ToString("yyyy-MM-dd") )</td>
+                                        <td><a href="/userInfo/GetUDetail/?id=@alist.userId">详情</a></td>
+                                    </tr>
+
+                                }
+                            }
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

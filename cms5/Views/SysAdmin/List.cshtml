@@ -1,0 +1,25 @@
+﻿@model Models.SysAdmin
+
+@{
+    ViewBag.Title = "管理员列表";
+    Layout = "~/Views/Shared/_Null.cshtml";
+}
+
+@if (ViewBag.List != null)
+{
+<a href="/SysAdmin/Add">添加</a> @ViewBag.info
+<ul>
+    @foreach (var alist in ViewBag.list)
+    {
+    <li id="@alist.PK_Sys_Admin">
+        @alist.PK_Sys_Admin @alist.admin_name @alist.admin_addtime
+        <a href="/SysAdmin/GetDetail/?id=@alist.PK_Sys_Admin">查看详细</a>
+        <a href="/SysAdmin/Edit/?id=@alist.PK_Sys_Admin">修改</a>
+        <a href="/SysAdmin/Del/?id=@alist.PK_Sys_Admin">删除</a>
+    </li>
+    }
+</ul>
+
+}
+
+

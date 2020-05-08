@@ -1,0 +1,108 @@
+﻿@model Models.UserInfo
+
+@{
+    ViewBag.Title = "填 写 报 名 信 息";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<form action="/UserInfo/GetAdd/">
+    <span style="background-color:brown"> @ViewBag.meg</span>
+        <div class="jumbotron mg-15 text-left demo">
+            <div class="form-group">
+                <label for="exampleInputName">姓名:</label><span style="background-color:brown">  @Html.ValidationMessage("userName")</span>
+                <input name="userName" value="@(Model!=null?Model.userName:null)" type="text" class="form-control" id="exampleInputName" placeholder="请填写您的姓名">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputCompany">公司:</label>
+                <span style="background-color:brown"> @Html.ValidationMessage("userCompany")</span>
+                <input name="userCompany" type="text" class="form-control" id="exampleInputCompany" placeholder="请填写您的公司">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputZw">职务:</label>
+                <input name="userPost" type="text" class="form-control" id="exampleInputZw" placeholder="请填写您的职务">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputSj">电话:</label>
+                <span style="background-color:brown"> @Html.ValidationMessage("userPhone")</span>
+                <input name="userPhone" type="text" class="form-control" id="exampleInputZw" placeholder="请填写您的手机号">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputAd">地址:</label>
+                <input name="userAddress" type="text" class="form-control" id="exampleInputAd" placeholder="请填写您的地址">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputAd">继续教育专业:</label>
+                <input name="jxJiaoyu" type="text" class="form-control" id="exampleInputAd" placeholder="没有可以不填">
+            </div>
+            是否需要发票：<input class="checkbox" type="checkbox" name="test" data-on-text="是" data-off-text="否">
+            <script type="text/javascript">
+                            $("[name='test']").bootstrapSwitch(
+                                {
+                                     onSwitchChange: function () {
+                                         $('#myModal').modal({
+                                         show: true,
+                                         backdrop:'static'
+                                         })
+                                     }
+                                }
+                            );
+
+            </script>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> 我已阅读
+                </label>
+                <a>《报名须知》</a><a>《责任条款》</a>
+            </div>
+            <button type="submit" class="btn btn-danger">提交</button>
+        </div>
+
+
+        @*userId, userName, userCompany, userPost, userPhone, userAddress, taxName, taxNumber, taxBank, taxType*@
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal" style="color: black">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="color: black">&times;</span>
+                        </button>
+                        <h4 class="modal-title">填写发票信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input class="checkbox" checked type="checkbox" name="taxIsPu" value="1" data-on-text="普票" data-off-text="增票" data-off-color="danger">
+                            <input type="hidden" name="taxIsPu" value="0" data-on-text="" data-off-text="">
+                            <script type="text/javascript">
+                                $("[name='taxIsPu']").bootstrapSwitch();
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <input name="taxName" id="taxName" type="text" class="form-control" placeholder="发票抬头">
+                        </div>
+                        <div class="form-group">
+                            <input name="taxNumber" type="text" class="form-control" placeholder="纳税人识别号">
+                        </div>
+
+                        <div class="form-group">
+                            <input name="taxBank" type="text" class="form-control" placeholder="开户行及帐号">
+                        </div>
+                        <div class="form-group">
+                            <input name="taxAddress" type="text" class="form-control" placeholder="开票地址">
+                        </div>
+                        <div class="form-group">
+                            <input name="taxPhone" type="text" class="form-control" placeholder="开票电话">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary close-btn">保存</button>
+                        <!-- <button type="button" class="btn btn-primary">保存</button> -->
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <script>
+    $('.close-btn').click(function () {
+        $('#myModal').modal('hide')
+    })
+        </script>
+</form>

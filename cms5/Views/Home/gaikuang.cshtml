@@ -1,0 +1,17 @@
+﻿@model Models.LanmuInfo
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "会 议 概 况";
+}
+
+
+<span>[ @ViewBag.Title ]</span>
+
+
+<div class="container ofauto">
+    @Html.Raw(Model.lanmuNeirong)
+    <p>
+        <br />
+    </p>
+</div>
+

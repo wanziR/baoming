@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  cms5:
+    image: cms5
+    build:
+      context: .\cms5
+      dockerfile: Dockerfile

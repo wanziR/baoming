@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link href="https://cdn.bootcss.com/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap-switch/4.0.0-alpha.1/js/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" href="/css/stylebs.css">
+    <title>填写报名信息</title>
+</head>
+<style>
+
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="/img/logo.png" height="30px" alt="">
+            </div>
+        </div>
+        <div class="row text-center mg-30">
+            <div class="col-12">
+                <img src="/img/title.png" height="50px" alt="">
+            </div>
+            <div class="col-12">
+                <img src="/img/line.png" height="14px" alt="">
+            </div>
+        </div>
+        <div class="row mg-15 center-block" style="color: black">
+
+            <div class="col-12 text-center center-block wp90">
+
+                <span>[ 填 写 报 名 信 息 ]</span>
+                <div class="jumbotron mg-15 text-left">
+                    <form action="/pay.html">
+                        <div class="form-group">
+                            <label for="exampleInputName">姓名:</label>
+                            <input type="text" class="form-control" id="exampleInputName" placeholder="请填写您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputCompany">公司:</label>
+                            <input type="text" class="form-control" id="exampleInputCompany" placeholder="请填写您的公司">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputZw">职务:</label>
+                            <input type="text" class="form-control" id="exampleInputZw" placeholder="请填写您的职务">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputAd">地址:</label>
+                            <input type="text" class="form-control" id="exampleInputAd" placeholder="请填写您的地址">
+                        </div>
+                        是否需要发票：<input class="checkbox" type="checkbox" name="test" data-on-text="是" data-off-text="否">
+                        <script type="text/javascript">
+                            $("[name='test']").bootstrapSwitch(
+                                {
+                                     onSwitchChange: function () {
+                                         $('#myModal').modal({
+                                         show: true,
+                                         backdrop:'static'
+                                         })
+                                     }
+                                }
+                            );
+                            
+                        </script>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 我已阅读
+                            </label>
+                            <a>《报名须知》</a><a>《责任条款》</a>
+                        </div>
+                        <button type="submit" class="btn btn-danger">提交</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mg-15 pull-right" style="padding-right: 18px">
+                <a type="button" class="btn btn-default right-block"><span class="badge">2 </span>未读消息</a>
+                <a href="/main.html" type="button" class="btn btn-large btn-primary">返回</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row center-block text-center">
+        <div class="col-12 mg-60 fs-18">
+            <p>诚/挚/欢/迎/您/的/到/来</p>
+        </div>
+    </div>
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal" style="color: black">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true" style="color: black">&times;</span></button>
+                <h4 class="modal-title">填写发票信息</h4>
+            </div>
+            <div class="modal-body">
+               <form>
+                   
+                   <div class="form-group">
+                 <input class="checkbox" checked type="checkbox" name="test1" data-on-text="普票" data-off-text="增票"
+                     data-off-color="danger">
+                  <script type="text/javascript">
+                      $("[name='test1']").bootstrapSwitch();
+                     </script>
+                </div>
+                <div class="form-group">
+                       <input type="text" class="form-control"  placeholder="发票抬头">
+                   </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control"  placeholder="纳税人识别号">
+                  </div>
+                   <div class="form-group">
+                       <input type="text" class="form-control"  placeholder="电话">
+                   </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control"  placeholder="地址">
+                    </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control"  placeholder="开户行及帐号">
+                      </div>
+                   </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+                <!-- <button type="button" class="btn btn-primary">保存</button> -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+
+</html>

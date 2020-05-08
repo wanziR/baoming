@@ -1,0 +1,17 @@
+﻿@model Models.SysAdmin
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Null.cshtml";
+}
+@using (Ajax.BeginForm("GetAdd", new AjaxOptions { OnSuccess = "addSuccess", UpdateTargetId = "AddMsg", Confirm = "确认要提交吗？" ,HttpMethod="post"}))
+{
+
+    <input name="admin_name" value="@(Model!=null?Model.admin_name:null)" type="text" />
+    <input name="admin_pwd" value="@(Model!=null?Model.admin_pwd:null)" type="text" />
+
+    <input type="submit" value=" 提交" />
+    <a id="AddMsg"></a>
+}
+
+

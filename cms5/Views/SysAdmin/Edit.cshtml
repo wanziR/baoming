@@ -1,0 +1,14 @@
+﻿@model Models.SysAdmin
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Null.cshtml";
+}
+@using (Html.BeginForm("GetEdit", "SysAdmin", FormMethod.Post))
+{
+   @ViewBag.id
+    <input name="PK_Sys_Admin" value="@ViewBag.id" type="hidden" />
+    <input type="text" name="admin_name" value="@Model.admin_name" />
+    <input type="text" name="admin_pwd" value="@Model.admin_pwd" />
+    <input type="submit" name="name" value="修改" />
+}

@@ -1,0 +1,33 @@
+﻿@model Models.UserInfo
+
+@{
+    ViewBag.Title = "主页-后台管理";
+    ViewBag.lanmu = Model.userName;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-widget">
+
+    <ul class="list-group">
+        <li class="list-group-item">姓名：@Model.userName</li>
+        <li class="list-group-item">公司：@Model.userCompany</li>
+        <li class="list-group-item">职务：@Model.userPost</li>
+        <li class="list-group-item">电话：@Model.userPhone</li>
+        <li class="list-group-item">地址：@Model.userAddress</li>
+        <li class="list-group-item">继续教育：@Model.jxJiaoyu</li>
+        <li class="list-group-item">----------------------------------发票信息----------------------------------</li>
+        <li class="list-group-item">发票类型：@(Model.taxIsPu==1?"普票":"专票")</li>
+        <li class="list-group-item">发票抬头：@Model.taxName</li>
+        <li class="list-group-item">纳税人识别号：@Model.taxNumber</li>
+        <li class="list-group-item">开户行帐号：@Model.taxBank</li>
+        <li class="list-group-item">发票地址：@Model.taxAddress</li>
+        <li class="list-group-item">发票电话：@Model.taxPhone</li>
+
+
+
+    </ul>
+                 
+
+
+
+</div>

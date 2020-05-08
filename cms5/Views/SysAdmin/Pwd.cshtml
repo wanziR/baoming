@@ -1,0 +1,72 @@
+﻿@model Models.SysAdmin
+@{
+    ViewBag.Title = "修改密码";
+    ViewBag.lanmu = "修改密码";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container-widget">
+    <div class="row">
+        @Html.Partial("~/Views/Shared/_AdminTongji.cshtml")
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-title">
+                    修改密码
+                </div>
+                <div class="panel-body table-responsive">
+
+                    <table id="example" class="table display">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>用户名</th>
+                                <th>密码</th>
+                                <th>修改密码</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (ViewBag.List != null)
+                            {
+                                foreach (var alist in ViewBag.list)
+                                {
+                                    using (Html.BeginForm("updatePwd", "SysAdmin", FormMethod.Post))
+                                    {
+                                        <tr>
+                                            <td>@alist.PK_Sys_Admin </td>
+                                            <td>
+                                                @alist.admin_name
+                                        </td>
+                                        <td>
+                                            <input type="password" name="admin_pwd" value="@alist.admin_pwd" />
+                                            @*<i class="fa fa-eye-slash"></i>*@
+                                        </td>
+                                        <td><a href="~/Views/SysAdmin/Index.cshtml" class="btn btn-danger" data-toggle="modal" data-target="#jiaofei">修改</a></td>
+                                    </tr>
+                                }
+                            }
+                        }
+
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@*<script type="text/javascript">
+                                $("#pwd").on("click", ".fa-eye-slash", function () {
+            $(this).removeClass("fa-eye-slash").addClass("fa-eye");
+            $(this).prev().attr("type", "text");
+        });
+
+                                $("#pwd").on("click", ".fa-eye", function () {
+            $(this).removeClass("fa-eye").addClass("fa-eye-slash");
+            $(this).prev().attr("type", "password");
+        });
+    </script>*@

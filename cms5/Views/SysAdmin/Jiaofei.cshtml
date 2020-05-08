@@ -1,0 +1,84 @@
+﻿@model Models.UserInfo
+@{
+    ViewBag.Title = "缴费信息";
+    ViewBag.lanmu = "缴费信息";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-widget">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-title">
+                    点击"<span style="color: red">否</span>"更改缴费状态
+                </div>
+                <div class="panel-body table-responsive">
+
+                    <table id="example" class="table display">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>电话</th>
+                                <th>公司</th>
+                                <th>更改缴费状态</th>
+                                <th>报名时间</th>
+                                <th>详细信息</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+                            @if (ViewBag.List != null)
+    {
+        foreach (var alist in ViewBag.list)
+        {
+                        <tr>
+                            <td>@alist.userName</td>
+                            <td>@alist.userPhone</td>
+                            <td>@alist.userCompany</td>
+                            <td><a href="#"  data-toggle="modal" data-target="#jiaofei"><span style="color: red">@alist.taxIsok否</span></td>
+                            <td>@alist.userAddtime</td>
+                            <td><a href="#">详情</a></td>
+                        </tr>
+}
+}
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- ================================================
+模态框-修改缴费状态
+================================================ -->
+<div class="modal fade" tabindex="-1" id="jiaofei" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">修改缴费状态</h4>
+            </div>
+            <div class="modal-body">
+                <p>要将收费状态改成"是"的态吗？请在确认收到费用后进行些操作，并点击确定，否则请关闭</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

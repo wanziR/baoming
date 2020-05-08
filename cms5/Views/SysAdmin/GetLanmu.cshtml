@@ -1,0 +1,59 @@
+﻿@model Models.LanmuInfo
+<script src="~/Scripts/ueditor/ueditor.config.js"></script>
+<script src="~/Scripts/ueditor/ueditor.all.min.js"></script>
+<link href="~/Scripts/ueditor/themes/iframe.css" rel="stylesheet" />
+<script src="~/Scripts/ueditor/lang/zh-cn/zh-cn.js"></script>
+@{
+    ViewBag.Title = Model.lanmuName;
+    ViewBag.lanmu = Model.lanmuName;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<script type="text/javascript">
+ var editor = new baidu.editor.ui.Editor({
+  UEDITOR_HOME_URL: '/Scripts/ueditor/',//配置编辑器路径
+  iframeCssUrl: '/Scripts/ueditor/themes/iframe.css',//样式路径
+  //initialContent: '',//初始化编辑器内容
+  autoHeightEnabled: true,//高度自动增长
+  minFrameHeight: 500,//最小高度
+  autoFloatEnabled: true,
+  initialFrameWidth: 820,
+
+  initialFrameHeight: 200
+ });
+ editor.render('editor');
+</script>
+@using (Html.BeginForm("UpdateLanmu", "SysAdmin", FormMethod.Post))
+{
+    <input name="lanmuId" value="@Model.lanmuId" type="hidden" />
+<textarea id="editor" name="lanmuNeirong">
+@Model.lanmuNeirong
+</textarea>
+    <input data-toggle="modal" data-target="#sub" class="btn btn-primary" value="修改" />
+    <!-- ================================================
+    模态框-提交确认
+    ================================================ -->
+    <div class="modal fade" tabindex="-1" id="sub" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">编辑 @Model.lanmuName</h4>
+                </div>
+                <div class="modal-body">
+                    <p>确定要修改内容吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">确定</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+}
+
+

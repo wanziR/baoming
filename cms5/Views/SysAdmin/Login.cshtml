@@ -1,0 +1,56 @@
+﻿@model Models.SysAdmin
+
+@{
+    ViewBag.Title = "用户登录";
+    Layout = "~/Views/Shared/_Null.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>登录-后台管理</title>
+
+    <!-- ========== Css Files ========== -->
+    <link href="/css/root.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background: #F5F5F5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-form">
+        @using (Html.BeginForm("AdminLogin", "SysAdmin", FormMethod.Post, new { name = "", @class = "class1" }))
+        {
+            <div class="top">
+                <img src="/img/admin/tmlogo.png" alt="icon" class="icon">
+                <h1>后台管理</h1>
+                <h4>甘肃省本土建筑学会年会</h4>
+            </div>
+            <div class="form-area">
+                <div class="group">
+                    <span style="color:brown">@ViewBag.info</span>
+                    <input name="admin_name" type="text" class="form-control" placeholder="用户名">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="group">
+                    <input name="admin_pwd" type="password" class="form-control" placeholder="密码">
+                    <i class="fa fa-key"></i>
+                </div>
+                <div class="checkbox checkbox-primary">
+                    <input id="checkbox101" type="checkbox" checked>
+                    <label for="checkbox101"> 记住密码</label>
+                </div>
+                <button type="submit" class="btn btn-default btn-block">登录</button>
+            </div>
+
+            <div class="footer-links row">
+                <!-- <div class="col-xs-6"><a href="#"><i class="fa fa-external-link"></i> Register Now</a></div> -->
+                <!-- <div class="col-xs-6 text-right"><a href="#"><i class="fa fa-lock"></i> Forgot password</a></div> -->
+            </div>
+        }
+    </div>
+
+</body>
+</html>

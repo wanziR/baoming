@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/css/root.css" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+
+</head>
+
+<body>
+    <!-- Start Page Loading -->
+    <div class="loading"><img src="/img/admin/loading.gif" alt="loading-img"></div>
+    <!-- End Page Loading -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START TOP -->
+    <div id="top" class="clearfix">
+
+        <!-- Start App Logo -->
+        <div class="applogo">
+            <a href="index.html" class="logo">后台管理系统</a>
+        </div>
+        <!-- End App Logo -->
+        <!-- Start 侧边栏显示隐藏按钮 -->
+        <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
+        <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
+        <!-- End 侧边栏显示隐藏按钮 -->
+        <!-- Start 搜索框 -->
+
+
+        <form class="searchform" action="/SysAdmin/Search" id="search">
+
+            <input type="text" name="strWord" class="searchbox" id="searchbox" placeholder="公司/姓名/电话">
+            <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
+
+        @*<span class="searchbutton"><a href="" onclick="document.getelementbyid('search').submit(); return false;"><i class="fa fa-search"></i></a></span>*@
+        </form>
+        <!-- End 搜索框 -->
+        <!-- Start Top Menu -->
+        <!-- End Top Menu -->
+        <!-- Start 侧面板显示隐藏按钮 -->
+        <a href="#sidepanel" class="sidepanel-open-button"><i class="fa fa-outdent"></i></a>
+        <!-- End 侧面板显示隐藏按钮 -->
+        <!-- Start Top Right -->
+        <ul class="top-right">
+
+            <li class="dropdown link">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img src="/img/admin/tmlogo.png" alt="img"><b> @ViewBag.adminName</b><span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
+                    <li><a href="#"><i class="fa falist fa-lock"></i> 密码</a></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa falist fa-power-off"></i>
+                            @Html.ActionLink("退出", "Exit", "SysAdmin")
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- End Top Right -->
+
+    </div>
+    <!-- END TOP -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START SIDEBAR -->
+    <div class="sidebar clearfix">
+
+        <ul class="sidebar-panel nav">
+            <li class="sidetitle">甘肃省土木建筑学会年会</li>
+            <li><a href="/SysAdmin/"><span class="icon color5"><i class="fa fa-check-square-o"></i></span>报名管理</a></li>
+
+            <li>
+                <a href="#"><span class="icon color7"><i class="fa fa-home"></i></span>主页管理<span class="caret"></span></a>
+                <ul>
+                    <li><a href="/SysAdmin/GetLanmu/?id=1">会议概况</a></li>
+                    <li><a href="/SysAdmin/GetLanmu/?id=2">会议安排</a></li>
+                    <li><a href="/SysAdmin/GetLanmu/?id=3">嘉宾介绍</a></li>
+                    <li><a href="/SysAdmin/GetLanmu/?id=4">交通安排</a></li>
+                    <li><a href="/SysAdmin/GetLanmu/?id=5">报名需知</a></li>
+                    <li><a href="/SysAdmin/GetLanmu/?id=6">会议通知</a></li>
+                    <li><a href="/SysAdmin/GetLanmu/?id=7">会场介绍</a></li>
+                    <li><a href="/SysAdmin/GetLanmu/?id=8">温馨提示</a></li>
+                </ul>
+            </li>
+            <li><a href="/SysAdmin/GetPwd"><span class="icon color5"><i class="fa fa-paper-plane-o"></i></span>修改密码</a></li>
+
+        </ul>
+
+
+        <div class="sidebar-plan">
+            报名人数<a href="#" class="link"> @ViewBag.num</a>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- START CONTENT -->
+    <div class="content">
+
+        <!-- Start Page Header -->
+        <div class="page-header">
+            <h1 class="title">@ViewBag.lanmu</h1>
+
+    
+
+            <!-- Start Page Header Right Div -->
+            <div class="right">
+                <div class="btn-group" role="group" aria-label="...">
+                    <a href="#" class="btn btn-light">@ViewBag.lanmu</a>
+                    <a href="#" class="btn btn-light"><i class="fa fa-refresh"></i></a>
+                    <a href="#" class="btn btn-light"><i class="fa fa-search"></i></a>
+                    <a href="#" class="btn btn-light" id="topstats"><i class="fa fa-line-chart"></i></a>
+                </div>
+            </div>
+            <!-- End Page Header Right Div -->
+
+        </div>
+        <!-- End Page Header -->
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+        <!-- START CONTAINER -->
+        @RenderBody()
+
+        <!-- Start Footer -->
+        <div class="row footer">
+            <div class="col-md-6 text-left">
+                Copyright &copy; 2019.建投培训中心<a href="#"></a>
+            </div>
+            <div class="col-md-6 text-right">
+                甘肃省土木建筑学会年会
+            </div>
+        </div>
+        <!-- End Footer -->
+
+
+    </div>
+    <!-- End Content -->
+    <!-- ================================================
+    jQuery Library
+    ================================================ -->
+    <script type="text/javascript" src="/js/admin/jquery.min.js"></script>
+
+    <!-- ================================================
+    Bootstrap Core JavaScript File
+    ================================================ -->
+    <script src="/js/admin/bootstrap/bootstrap.min.js"></script>
+
+    <!-- ================================================
+    Plugin.js - Some Specific JS codes for Plugin Settings
+    ================================================ -->
+    <script type="text/javascript" src="/js/admin/plugins.js"></script>
+
+    <!-- ================================================
+    Bootstrap Select
+    ================================================ -->
+    <script type="text/javascript" src="/js/admin/bootstrap-select/bootstrap-select.js"></script>
+
+    <!-- ================================================
+    Bootstrap Toggle
+    ================================================ -->
+    <script type="text/javascript" src="/js/admin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+
+    <!-- ================================================
+    Flot Chart
+    ================================================ -->
+    <!-- main file -->
+    <script type="text/javascript" src="/js/admin/flot-chart/flot-chart.js"></script>
+    <!-- time.js -->
+    <script type="text/javascript" src="/js/admin/flot-chart/flot-chart-time.js"></script>
+    <!-- stack.js -->
+    <script type="text/javascript" src="/js/admin/flot-chart/flot-chart-stack.js"></script>
+    <!-- pie.js -->
+    <script type="text/javascript" src="/js/admin/flot-chart/flot-chart-pie.js"></script>
+    <!-- demo codes -->
+    <script type="text/javascript" src="/js/admin/flot-chart/flot-chart-plugin.js"></script>
+
+
+    <!-- ================================================
+    Easy Pie Chart
+    ================================================ -->
+    <!-- main file -->
+    <script type="text/javascript" src="/js/admin/easypiechart/easypiechart.js"></script>
+    <!-- demo codes -->
+    <script type="text/javascript" src="/js/admin/easypiechart/easypiechart-plugin.js"></script>
+
+    <!-- ================================================
+    Sparkline
+    ================================================ -->
+    <!-- main file -->
+    <script type="text/javascript" src="/js/admin/sparkline/sparkline.js"></script>
+    <!-- demo codes -->
+    <script type="text/javascript" src="/js/admin/sparkline/sparkline-plugin.js"></script>
+
+    <!-- ================================================
+    Rickshaw
+    ================================================ -->
+    <!-- d3 -->
+    <script src="/js/admin/rickshaw/d3.v3.js"></script>
+    <!-- main file -->
+    <script src="/js/admin/rickshaw/rickshaw.js"></script>
+    <!-- demo codes -->
+    <script src="/js/admin/rickshaw/rickshaw-plugin.js"></script>
+
+    <!-- ================================================
+    Moment.js
+    ================================================ -->
+    <script type="text/javascript" src="/js/admin/moment/moment.min.js"></script>
+
+
+    <!-- ================================================
+    Below codes are only for index widgets
+    ================================================ -->
+    <!-- Today Sales -->
+    <script>
+
+// set up our data series with 50 random data points
+
+var seriesData = [ [], [], [] ];
+var random = new Rickshaw.Fixtures.RandomData(20);
+
+for (var i = 0; i < 110; i++) {
+  random.addData(seriesData);
+}
+
+// instantiate our graph!
+
+var graph = new Rickshaw.Graph( {
+  element: document.getElementById("todaysales"),
+  renderer: 'bar',
+  series: [
+    {
+      color: "#33577B",
+      data: seriesData[0],
+      name: 'Photodune'
+    }, {
+      color: "#77BBFF",
+      data: seriesData[1],
+      name: 'Themeforest'
+    }, {
+      color: "#C1E0FF",
+      data: seriesData[2],
+      name: 'Codecanyon'
+    }
+  ]
+} );
+
+graph.render();
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+  graph: graph,
+  formatter: function(series, x, y) {
+    var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+    var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+    var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+    return content;
+  }
+} );
+
+    </script>
+
+    <!-- Today Activity -->
+    <script>
+// set up our data series with 50 random data points
+
+var seriesData = [ [], [], [] ];
+var random = new Rickshaw.Fixtures.RandomData(20);
+
+for (var i = 0; i < 50; i++) {
+  random.addData(seriesData);
+}
+
+// instantiate our graph!
+
+var graph = new Rickshaw.Graph( {
+  element: document.getElementById("todayactivity"),
+  renderer: 'area',
+  series: [
+    {
+      color: "#9A80B9",
+      data: seriesData[0],
+      name: 'London'
+    }, {
+      color: "#CDC0DC",
+      data: seriesData[1],
+      name: 'Tokyo'
+    }
+  ]
+} );
+
+graph.render();
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+  graph: graph,
+  formatter: function(series, x, y) {
+    var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+    var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+    var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+    return content;
+  }
+} );
+    </script>
+</body>
+</html>

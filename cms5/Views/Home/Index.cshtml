@@ -1,31 +1,84 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutHomeIndex.cshtml";
+    ViewBag.Title = "首页-甘肃省土木建筑学会2019年学术年会";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="row mg-30 center-block">
+    <a href="/home/gaikuang/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-tasks fs-50" aria-hidden="true"></span><br>
+            <span>会议概况</span>
+        </div>
+    </a>
+    <a href="/home/anpai/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-list-alt fs-50" aria-hidden="true"></span><br>
+            <span>会议安排</span>
+        </div>
+    </a>
+    <a href="/home/jiabin/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-user fs-50" aria-hidden="true"></span><br>
+            <span>嘉宾介绍</span>
+        </div>
+    </a>
+</div>
+<div class="row mg-30 center-block">
+    <a href="/home/jiaotong/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-road fs-50" aria-hidden="true"></span><br>
+            <span>交通安排</span>
+        </div>
+    </a>
+
+    @*<a href="#" data-toggle="modal" data-target="#baoming">*@
+    <a href="/UserInfo/baoming/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-flag fs-50" aria-hidden="true"></span><br>
+            <span>会议报名</span>
+        </div>
+    </a>
+    <a href="/home/tongzhi/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-bullhorn fs-50" aria-hidden="true"></span><br>
+            <span>会议通知</span>
+        </div>
+    </a>
+
+</div>
+<div class="row mg-30 center-block">
+    <a href="/home/huichang/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-blackboard fs-50" aria-hidden="true"></span><br>
+            <span>会场介绍</span>
+        </div>
+    </a>
+    <a href="/home/tishi/">
+        <div class="col-xs-4 text-center">
+            <span class="glyphicon glyphicon-heart-empty fs-50" aria-hidden="true"></span><br>
+            <span>温馨提示</span>
+        </div>
+    </a>
+    <a href="" data-toggle="modal" data-target="#loginModal">
+        <div class="col-xs-4 text-center">
+            <span class="fa fa-cog fa-spin fs-50" aria-hidden="true"></span><br>
+            <span>个人中心</span>
+        </div>
+    </a>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<!-- Modal -->
+<div class="modal fade" id="baoming" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+  
+            <div class="modal-body" style="color:black">
+             <br>
+                报名已经结束！
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
     </div>
 </div>

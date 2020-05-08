@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "报名须知";
+}
+
+
+<a href="/UserInfo/baoming/" class="btn btn-success lg">个人报名</a>&nbsp;<a href="/Home/baomingc/" class="btn btn-danger lg">企业报名</a>
+
+<br>
+<br>
+<span>[ 报 名 须 知 ]</span>
+<div class="jumbotron mg-15 demo">
+    <div class="container text-left ofauto" style="line-height:30px">
+        @Html.Raw(Model.lanmuNeirong)
+    </div>
+    </div>
+
+

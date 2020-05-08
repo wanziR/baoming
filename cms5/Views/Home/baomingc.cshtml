@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "企 业 报名";
+}
+
+
+<span>[ 企 业 报名 ]</span>
+<div class="jumbotron mg-15 demo">
+    <div class="container text-left ofauto" style="line-height:30px">
+        @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                <a href="~/img/gstmjzxnh.xlsx" class="btn btn-success lg">下载企业报名表格</a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id='location' class="form-control" onclick="$('#i-file').click();">
+                        <label class="input-group-btn">
+                            <input type="button" id="i-check" value="选择文件" class="btn btn-primary" onclick="$('#i-file').click();">
+                        </label>
+                    </div>
+                    <input type="file" name="myFile" id='i-file' accept=".xls, .xlsx" onchange="$('#location').val($('#i-file').val());" style="display: none">
+                </div>
+                <input type="submit" class="btn btn-danger right-block" value="上传" />
+            </div>
+        </div>
+
+        <div class="row text-center">
+            请将文件名称以公司名称命名后上传！<br>
+            <span style="color:green; font-weight:bold;font-size:1.8em"> @ViewBag.msg</span>
+        </div>
+        }
+
+    </div>
+    </div>
+
+

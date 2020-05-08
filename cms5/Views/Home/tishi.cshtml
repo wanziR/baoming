@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "温馨提示";
+}
+<style>
+
+    .jumbotron {
+        background: #ffffff;
+    }
+</style>
+
+<span>[ 温 馨 提 示 ]</span>
+
+<div class="jumbotron mg-15">
+    <div class="container ofauto">
+        @Html.Raw(Model.lanmuNeirong)
+    </div>
+</div>
